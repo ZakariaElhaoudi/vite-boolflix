@@ -1,23 +1,34 @@
 <script >
+import axios from 'axios';
 import { store } from '../store';
 export default {
     name: "AppSearchBar",
     data() {
         return {
             store,
+            searchQuery: "",
         }
     },
     methods: {
-        getCards() {
-            axios.get(store.apiURL)
-                .then(card => {
-                    store.listCards = card.data.data;
-                    console.log(store.listCards);
+        getSearchMovies() {
+
+            let myUrl = store.apiURL
+
+            if (searchQuery !== "") {
+                myUrl += `=${this.searchQuery}`
+            }
+            axios.get(myUrl)
+                .then(response => {
+                    this.store.listMovies = response.data.results;
+                    console.log(this.store.listMovies);
                 })
                 .catch(error => {
                     console.log(error);
                 })
-        },
+        }
+    },
+    created() {
+        this.getSearchMovies();;
     }
 
 }
@@ -27,8 +38,8 @@ export default {
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <input type="text" placeholder="cerca film" v-model="store.searchQuery">
-                <button @click="searchMovies">Cerca</button>
+                <input class="form" type="text" placeholder="cerca film" v-model.trim="searchQuery">
+                <button class="btn " @click="getSearchMovies">Cerca</button>
             </div>
         </div>
     </div>
