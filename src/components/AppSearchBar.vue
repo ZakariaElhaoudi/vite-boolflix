@@ -14,7 +14,7 @@ export default {
 
             let myUrl = store.apiURL
 
-            if (searchQuery !== "") {
+            if (this.searchQuery !== "") {
                 myUrl += `=${this.searchQuery}`
             }
             axios.get(myUrl)
