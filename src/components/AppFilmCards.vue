@@ -17,8 +17,17 @@ export default {
 
 <template>
     <div class="row text-center mx-4">
-        <AppFilmCard v-for="data in store.listMovies" :details="data" />
+        <h2>Film</h2>
+        <AppFilmCard v-for="film in store.listMovies" :key="film.id" :details="film" />
+    </div>
+    <div class="row text-center mx-4">
+        <h2>Serie Tv</h2>
+        <AppFilmCard v-for="serieTv in store.listTvSeries" :key="serieTv.id" :details="serieTv" />
     </div>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+h2 {
+    color: white;
+}
+</style>

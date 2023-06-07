@@ -12,16 +12,22 @@ export default {
     methods: {
         getSearchMovies() {
 
-            let myUrl = store.apiURL
+            let myUrlMovies = store.apiMoviesURL
+            let myUrlTvSeries = store.apiTvSeriesURL
 
             if (this.searchQuery !== "") {
-                myUrl += `=${this.searchQuery}`
+                myUrlMovies += `=${this.searchQuery}`
+                myUrlTvSeries += `=${this.searchQuery}`
+                this.searchQuery = '';
             }
-            axios.get(myUrl)
-                .then(response => {
-                    this.store.listMovies = response.data.results;
+            axios
+                .all([axios.get(myUrlMovies), axios.get(myUrlTvSeries)])
+                .then(axios.spread((moviesResponse, tvSeriesResponse) => {
+                    this.store.listMovies = moviesResponse.data.results;
                     console.log(this.store.listMovies);
-                })
+                    this.store.listTvSeries = tvSeriesResponse.data.results;
+                    console.log(this.store.listTvSeries);
+                }))
                 .catch(error => {
                     console.log(error);
                 })
