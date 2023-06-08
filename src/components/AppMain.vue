@@ -1,10 +1,10 @@
 <script >
-import AppFilmCards from './AppFilmCards.vue';
+import ListFilmCards from './ListFilmCards.vue';
 import { store } from '../store';
 export default {
     name: "AppMain",
     components: {
-        AppFilmCards
+        ListFilmCards
     },
     data() {
         return {
@@ -18,7 +18,7 @@ export default {
 
 <template>
     <div class="container bg-dark">
-        <AppFilmCards />
+        <ListFilmCards />
     </div>
 </template>
 

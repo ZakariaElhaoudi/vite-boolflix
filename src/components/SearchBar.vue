@@ -2,7 +2,7 @@
 import axios from 'axios';
 import { store } from '../store';
 export default {
-    name: "AppSearchBar",
+    name: "SearchBar",
     data() {
         return {
             store,
@@ -12,13 +12,14 @@ export default {
     methods: {
         getSearchMovies() {
 
-            let myUrlMovies = store.apiMoviesURL
-            let myUrlTvSeries = store.apiTvSeriesURL
+            let myUrlMovies = store.apiMoviesURL.replace("{apiKey}", store.apiKey)
+            let myUrlTvSeries = store.apiTvSeriesURL.replace("{apiKey}", store.apiKey)
 
             if (this.searchQuery !== "") {
-                myUrlMovies += `=${this.searchQuery}`
-                myUrlTvSeries += `=${this.searchQuery}`
+                myUrlMovies += `query=${this.searchQuery}`
+                myUrlTvSeries += `query=${this.searchQuery}`
                 this.searchQuery = '';
+                console.log(myUrlMovies += ` api_Key=${this.searchQuery}`);
             }
             axios
                 .all([axios.get(myUrlMovies), axios.get(myUrlTvSeries)])

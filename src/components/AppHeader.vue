@@ -1,15 +1,15 @@
 <script>
-import AppSearchBar from './AppSearchBar.vue';
+import SearchBar from './SearchBar.vue';
 export default {
     name: "AppHeader",
     components: {
-        AppSearchBar,
+        SearchBar,
     }
 }
 </script>
 
 <template>
-    <AppSearchBar />
+    <SearchBar />
 </template>
 
 <style lang="scss" scoped></style>
