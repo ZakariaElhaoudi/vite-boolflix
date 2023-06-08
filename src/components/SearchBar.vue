@@ -19,7 +19,8 @@ export default {
                 myUrlMovies += `query=${this.searchQuery}`
                 myUrlTvSeries += `query=${this.searchQuery}`
                 this.searchQuery = '';
-                console.log(myUrlMovies += ` api_Key=${this.searchQuery}`);
+                console.log(myUrlMovies += `${this.searchQuery}`);
+                console.log(myUrlTvSeries += `${this.searchQuery}`);
             }
             axios
                 .all([axios.get(myUrlMovies), axios.get(myUrlTvSeries)])
