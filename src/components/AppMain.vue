@@ -22,4 +22,9 @@ export default {
     </div>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+div {
+    height: calc(100vh - 56px);
+    overflow: auto;
+}
+</style>

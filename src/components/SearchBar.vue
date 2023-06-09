@@ -49,7 +49,6 @@ export default {
                 <h1>BOOLFLIX</h1>
                 <input class="form" type="text" placeholder="Cerca" v-model.trim="searchQuery"
                     @keyup.enter="getSearchMovies">
-                <!-- <button class="btn " @click="getSearchMovies">Cerca</button> -->
             </div>
         </div>
     </div>

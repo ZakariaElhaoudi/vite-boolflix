@@ -51,16 +51,16 @@ export default {
 
 .date_hover {
     text-align: center;
-    width: 100%;
+    width: 94%;
     height: 100%;
     display: none;
     position: absolute;
     top: 0;
-    left: 0;
-    transform: translate(0, 0, );
-    transition: 0.3s ease-in-out;
+    left: 12;
     background-color: black;
     color: white;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
 }
 
 .img_cover {
@@ -73,6 +73,6 @@ export default {
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-
+    opacity: 1;
 }
 </style>

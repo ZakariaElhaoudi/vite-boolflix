@@ -29,5 +29,7 @@ export default {
 <style lang="scss" scoped>
 h2 {
     color: white;
+    font-size: 600;
+    font-weight: 600;
 }
 </style>
