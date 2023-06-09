@@ -29,10 +29,9 @@ export default {
             <img class="img-fluid full-height" :src="`https://image.tmdb.org/t/p/w342${details.backdrop_path}`"
                 :alt="details.title" :key="details.id">
         </div>
-        <div v-if="details.id" class="col-6 col-md-4 col-lg-3 card date_hover">
-            <!-- <img :src="`https://image.tmdb.org/t/p/w342${details.backdrop_path}`" :alt="details.title"> -->
-            <h4>Titolo:{{ details.title }} {{ details.original_name }}</h4>
-            <h4>Titolo Originale: {{ details.original_title }} {{ details.name }}</h4>
+        <div v-if="details.id" class=" date_hover">
+            <h5>Titolo:{{ details.title }} {{ details.original_name }}</h5>
+            <h5>Titolo Originale: {{ details.original_title }} {{ details.name }}</h5>
             <span :class="getLanguage(details.original_language)" class="flag"></span>
             <div class="d-flex flex-row ">
                 <div v-for="star in 5" :key="star">
@@ -41,11 +40,7 @@ export default {
                 </div>
             </div>
         </div>
-        <div v-else-if="details.id" class="col-6 col-md-4 col-lg-3 card _hover">
-            <!-- <img :src="`https://image.tmdb.org/t/p/w342${details.backdrop_path}`" :alt="details.name"> -->
-            <!-- <h4>Titolo: {{ details.original_name }}</h4>
-                                                                                                                                                                                                    <h4>Titolo Originale: {{ details.name }}</h4> -->
-            <!-- <span :class="getLanguage(details.original_language)" class="flag"></span> -->
+        <div v-else-if="details.id" class=" _hover">
         </div>
     </div>
 </template>
@@ -56,14 +51,16 @@ export default {
 
 .date_hover {
     text-align: center;
-    width: 342px;
-    height: 196px;
+    width: 100%;
+    height: 100%;
     display: none;
     position: absolute;
     top: 0;
     left: 0;
     transform: translate(0, 0, );
     transition: 0.3s ease-in-out;
+    background-color: black;
+    color: white;
 }
 
 .img_cover {
@@ -73,6 +70,9 @@ export default {
 
 .img_cover:hover .date_hover {
     display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
 
 }
 </style>
