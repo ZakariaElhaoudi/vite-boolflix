@@ -17,7 +17,7 @@ export default {
 </script>
 
 <template>
-    <div class="container bg-dark">
+    <div class="container-fluid bg-dark">
         <ListFilmCards />
     </div>
 </template>

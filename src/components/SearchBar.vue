@@ -43,14 +43,27 @@ export default {
 </script>
 
 <template>
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
-            <div class="col-12">
-                <input class="form" type="text" placeholder="cerca film" v-model.trim="searchQuery">
-                <button class="btn " @click="getSearchMovies">Cerca</button>
+            <div class="col-12 d-flex justify-content-between align-items-center">
+                <h1>BOOLFLIX</h1>
+                <input class="form" type="text" placeholder="Cerca" v-model.trim="searchQuery"
+                    @keyup.enter="getSearchMovies">
+                <!-- <button class="btn " @click="getSearchMovies">Cerca</button> -->
             </div>
         </div>
     </div>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+@use '../styles/partials/variables' as *;
+
+.container-fluid {
+    background-color: $black;
+
+    h1 {
+        color: red;
+        font-weight: 900;
+    }
+}
+</style>
